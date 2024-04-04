@@ -126,7 +126,7 @@ struct MapView: View {
                 self.position = MapCameraPosition.region(
                     MKCoordinateRegion(
                         center: position,
-                        span: MKCoordinateSpan(latitudeDelta: 0.001, longitudeDelta: 0.001)
+                        span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005)
                     )
                 )
             }
