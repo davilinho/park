@@ -10,6 +10,7 @@
 		D548BBC42BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D548BBC32BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf */; };
 		D57A8B692B85DB14004A57B8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57A8B682B85DB14004A57B8 /* SettingsView.swift */; };
 		D57A8B6B2B879617004A57B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */; };
+		D58368072C1216DB0003AD0A /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58368062C1216DB0003AD0A /* BluetoothManager.swift */; };
 		D5BAAA682BBF21E60048D27C /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAAA672BBF21E60048D27C /* Font+Extension.swift */; };
 		D5FD21F32B7BD7320034E9C0 /* parkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FD21F22B7BD7320034E9C0 /* parkApp.swift */; };
 		D5FD21F52B7BD7320034E9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FD21F42B7BD7320034E9C0 /* ContentView.swift */; };
@@ -44,6 +45,7 @@
 		D548BBC32BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
 		D57A8B682B85DB14004A57B8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
+		D58368062C1216DB0003AD0A /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
 		D5BAAA672BBF21E60048D27C /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		D5FD21EF2B7BD7320034E9C0 /* park.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = park.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FD21F22B7BD7320034E9C0 /* parkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkApp.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 		D5FD22262B7D0B320034E9C0 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				D58368062C1216DB0003AD0A /* BluetoothManager.swift */,
 				D5FD22272B7D0B3F0034E9C0 /* LocationManager.swift */,
 			);
 			path = Domain;
@@ -334,6 +337,7 @@
 			files = (
 				D57A8B692B85DB14004A57B8 /* SettingsView.swift in Sources */,
 				D5FD21F52B7BD7320034E9C0 /* ContentView.swift in Sources */,
+				D58368072C1216DB0003AD0A /* BluetoothManager.swift in Sources */,
 				D5BAAA682BBF21E60048D27C /* Font+Extension.swift in Sources */,
 				D5FD22222B7BD83D0034E9C0 /* ParkModel.swift in Sources */,
 				D5FD22282B7D0B3F0034E9C0 /* LocationManager.swift in Sources */,

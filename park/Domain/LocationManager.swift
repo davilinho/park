@@ -28,4 +28,12 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("☠️☠️☠️Location manager: didFailWithError %@ ☠️☠️☠️", error.localizedDescription)
     }
+
+    func areCoordinatesAtLeastMetersApart(firstLocationCoordinate: CLLocationCoordinate2D, secondLocationCoordinate: CLLocationCoordinate2D,
+                                          distanceApart: Double) -> Bool {
+        let firstLocation = CLLocation(latitude: firstLocationCoordinate.latitude, longitude: firstLocationCoordinate.longitude)
+        let secondLocation = CLLocation(latitude: secondLocationCoordinate.latitude, longitude: secondLocationCoordinate.longitude)
+        let distance = firstLocation.distance(from: secondLocation)
+        return distance >= distanceApart
+    }
 }

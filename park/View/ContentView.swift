@@ -15,6 +15,8 @@ struct ContentView: View {
     @EnvironmentObject var locationManager: LocationManager
     @Query private var locations: [ParkModel]
 
+    @StateObject private var bluetoothManager = BluetoothManager()
+
     @State private var route: MKRoute?
     @State private var lookAroundScene: MKLookAroundScene?
     @State private var travelTime: String?
@@ -111,11 +113,24 @@ struct ContentView: View {
             .position(CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height - 180))
         }
         .environmentObject(self.locationManager)
-//        .onAppear {
-//            self.locationManager.requestLocation()
-//        }
         .onAppear {
-            self.isParkSelected = self.locations.last?.isSelected ?? false
+            self.locationManager.requestLocation()
+        }
+        .onAppear {
+            guard let lastLocation = self.locations.last else { return }
+            self.isParkSelected = lastLocation.isSelected
+        }
+        .onReceive(self.locationManager.$location) { newValue in
+            guard let currentLocation = newValue,
+                  let lastLocation = self.locations.last, lastLocation.isSelected else {
+                return
+            }
+            let lastLocationCoordinate = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
+
+            let isMoreThan10MetersApart = self.locationManager.areCoordinatesAtLeastMetersApart(firstLocationCoordinate: currentLocation,
+                                                                                                secondLocationCoordinate: lastLocationCoordinate,
+                                                                                                distanceApart: 10)
+            self.isParkAlertShow = isMoreThan10MetersApart
         }
         .alert(isPresented: self.$isParkAlertShow) {
             Alert(title: Text("¿Has llegado a tu coche?"),
