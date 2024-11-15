@@ -7,7 +7,7 @@ import SwiftData
 
 @main
 struct parkApp: App {
-    @StateObject var locationManager = LocationManager()
+    @ObservedObject var locationManager = LocationManager()
 
     var container: ModelContainer = {
         let schema = Schema([
@@ -25,11 +25,12 @@ struct parkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .onAppear {
-                    self.locationManager.requestLocation()
-                }
                 .environmentObject(self.locationManager)
         }
         .modelContainer(self.container)
+    }
+    
+    init() {
+        self.locationManager.requestLocation()
     }
 }
