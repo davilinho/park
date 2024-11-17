@@ -74,47 +74,47 @@ struct MapView: View {
                 }
             }
         }
-        .safeAreaInset(edge: .top, alignment: .trailing) {
-            RoundedRectangle(cornerRadius: 8)
-                .fill(.white)
-                .shadow(radius: 4)
-                .frame(width: 44, height: 44)
-                .overlay {
-                    Button(action: {
-                        self.isActionSheetShow.toggle()
-                        self.isSettingsSheetShow.toggle()
-                    }) {
-                        Image(systemName: "gearshape.fill")
-                            .resizable()
-                            .frame(width: 24, height: 24)
-                            .tint(.blue)
-                    }
-                }
-                .padding(16)
-        }
-        .safeAreaInset(edge: .top, alignment: .center) {
-            Button(action: {
-
-            }) {
-                Text("Update to PRO")
-                    .padding()
-                    .background(.blue)
-                    .foregroundStyle(.white)
-                    .bold()
-                    .font(.nunitoBody)
-            }
-            .frame(height: 32)
-            .clipShape(.capsule)
-        }
-        .sheet(isPresented: self.$isSettingsSheetShow) {
-            SettingsView(isShowing: self.$isActionSheetShow)
-                .presentationDetents([.large])
-                .presentationDragIndicator(.visible)
-                .presentationBackgroundInteraction(.enabled)
-//                .interactiveDismissDisabled()
-                .padding(.top, 32)
-                .presentationBackground(.white)
-        }
+//        .safeAreaInset(edge: .top, alignment: .trailing) {
+//            RoundedRectangle(cornerRadius: 8)
+//                .fill(.white)
+//                .shadow(radius: 4)
+//                .frame(width: 44, height: 44)
+//                .overlay {
+//                    Button(action: {
+//                        self.isActionSheetShow.toggle()
+//                        self.isSettingsSheetShow.toggle()
+//                    }) {
+//                        Image(systemName: "gearshape.fill")
+//                            .resizable()
+//                            .frame(width: 24, height: 24)
+//                            .tint(.blue)
+//                    }
+//                }
+//                .padding(16)
+//        }
+//        .safeAreaInset(edge: .top, alignment: .center) {
+//            Button(action: {
+//
+//            }) {
+//                Text("Update to PRO")
+//                    .padding()
+//                    .background(.blue)
+//                    .foregroundStyle(.white)
+//                    .bold()
+//                    .font(.nunitoBody)
+//            }
+//            .frame(height: 32)
+//            .clipShape(.capsule)
+//        }
+//        .sheet(isPresented: self.$isSettingsSheetShow) {
+//            SettingsView(isShowing: self.$isActionSheetShow)
+//                .presentationDetents([.large])
+//                .presentationDragIndicator(.visible)
+//                .presentationBackgroundInteraction(.enabled)
+////                .interactiveDismissDisabled()
+//                .padding(.top, 32)
+//                .presentationBackground(.white)
+//        }
         .onMapCameraChange { context in
             withAnimation {
                 self.selectedPosition = context.region.center

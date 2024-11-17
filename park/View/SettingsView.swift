@@ -17,11 +17,7 @@ struct SettingsView: View {
             LazyVGrid(columns: [GridItem(.flexible())]) {
                 ScrollView {
                     ForEach(self.locations, id: \.self) { location in
-                        HStack {
-                            Text("\(location.latitude)")
-                            Text("\(location.longitude)")
-                            Spacer()
-                        }
+                        ParkModelView(model: location)
                     }
                 }
             }
@@ -34,5 +30,26 @@ struct SettingsView: View {
         }
         .font(.title)
         .padding()
+    }
+}
+
+struct ParkModelView: View {
+    var model: ParkModel
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(self.toStringDate(model.timestamp))
+            HStack {
+                Text("\(model.latitude)")
+                Text("\(model.longitude)")
+                Spacer()
+            }
+        }
+    }
+
+    func toStringDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        return dateFormatter.string(from: date)
     }
 }

@@ -22,6 +22,7 @@ struct ContentView: View {
     @State private var travelTime: String?
     @State private var selectedPosition: CLLocationCoordinate2D = .init()
     @State private var isParkSelected: Bool = false
+    @State private var isParkSelectedDotAnimation: Bool = false
     @State private var isParkAlertShow: Bool = false
     @State private var isShowDirections: Bool = false
 
@@ -33,7 +34,7 @@ struct ContentView: View {
                 .resizable()
                 .frame(width: 16, height: 48)
                 .foregroundColor(.red)
-                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y:  UIScreen.main.bounds.size.height / 2))
+                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - 64))
 
             if let lookAroundScene {
                 LookAroundPreview(initialScene: lookAroundScene)
@@ -43,7 +44,7 @@ struct ContentView: View {
             }
 
             if let travelTime, self.isShowDirections {
-                Text("Travel time: \(travelTime)")
+                Text("Tiempo estimado de llegada: \(travelTime)")
                     .padding()
                     .font(.caption)
                     .foregroundStyle(.black)
@@ -89,10 +90,18 @@ struct ContentView: View {
                             self.isParkSelected.toggle()
                         }
                     }) {
-                        Image(systemName: "parkingsign.circle.fill")
-                            .resizable()
-                            .frame(width: 48, height: 48)
-                            .tint(self.isParkSelected ? .gray : .blue)
+                        ZStack(alignment: .topTrailing) {
+                            Image(systemName: "parkingsign.circle.fill")
+                                .resizable()
+                                .frame(width: 48, height: 48)
+                                .tint(self.isParkSelected ? .gray : .blue)
+                            if self.isParkSelected, self.isParkSelectedDotAnimation {
+                                Circle()
+                                    .frame(width: 16, height: 16)
+                                    .foregroundStyle(.red)
+                            }
+                        }
+                        .frame(width: 48, height: 48)
                     }
                     .frame(maxWidth: .infinity)
 
@@ -119,18 +128,10 @@ struct ContentView: View {
         .onAppear {
             guard let lastLocation = self.locations.last else { return }
             self.isParkSelected = lastLocation.isSelected
-        }
-        .onReceive(self.locationManager.$location) { newValue in
-            guard let currentLocation = newValue,
-                  let lastLocation = self.locations.last, lastLocation.isSelected else {
-                return
+            
+            if self.isParkSelected {
+                self.startBlinking()
             }
-            let lastLocationCoordinate = CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)
-
-            let isMoreThan10MetersApart = self.locationManager.areCoordinatesAtLeastMetersApart(firstLocationCoordinate: currentLocation,
-                                                                                                secondLocationCoordinate: lastLocationCoordinate,
-                                                                                                distanceApart: 10)
-            self.isParkAlertShow = isMoreThan10MetersApart
         }
         .alert(isPresented: self.$isParkAlertShow) {
             Alert(title: Text("¿Has llegado a tu coche?"),
@@ -172,5 +173,11 @@ struct ContentView: View {
         formatter.unitsStyle = .full
         formatter.allowedUnits = [.hour, .minute]
         self.travelTime = formatter.string(from: route.expectedTravelTime)
+    }
+    
+    private func startBlinking() {
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
+            self.isParkSelectedDotAnimation.toggle()
+        }
     }
 }
