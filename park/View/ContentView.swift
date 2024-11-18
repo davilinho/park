@@ -88,6 +88,7 @@ struct ContentView: View {
                                                                longitude: self.selectedPosition.longitude, timestamp: Date(),
                                                                isSelected: true))
                             self.isParkSelected.toggle()
+                            self.startBlinking()
                         }
                     }) {
                         ZStack(alignment: .topTrailing) {
