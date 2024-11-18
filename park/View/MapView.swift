@@ -5,6 +5,7 @@
 import SwiftData
 import SwiftUI
 import MapKit
+import vegaDesignSystem
 
 struct MapView: View {
     @Environment(\.modelContext) private var modelContext
@@ -34,7 +35,7 @@ struct MapView: View {
                                 Image(systemName: "car.circle")
                                     .resizable()
                                     .frame(width: 44, height: 44)
-                                    .foregroundColor(.blue)
+                                    .foregroundColor(AppColor.primary)
                             }
                             .shadow(radius: 4)
                         }
@@ -45,11 +46,11 @@ struct MapView: View {
                             ZStack {
                                 Circle()
                                     .fill(.white)
-                                    .frame(width: 32, height: 32)
+                                    .frame(width: Dimensions.XL, height: Dimensions.XL)
                                 Image(systemName: "smallcircle.filled.circle.fill")
                                     .resizable()
-                                    .frame(width: 24, height: 24)
-                                    .foregroundColor(.blue)
+                                    .frame(width: Dimensions.L, height: Dimensions.L)
+                                    .foregroundColor(AppColor.primary)
                             }
                             .shadow(radius: 4)
                         }
@@ -57,7 +58,7 @@ struct MapView: View {
 
                     if let route, self.isShowDirections {
                         MapPolyline(route.polyline)
-                            .stroke(.blue, lineWidth: 8)
+                            .stroke(AppColor.primary, lineWidth: 8)
                     }
                 }
                 .mapStyle(.standard(elevation: .automatic, pointsOfInterest: .including([.parking])))
@@ -86,11 +87,11 @@ struct MapView: View {
 //                    }) {
 //                        Image(systemName: "gearshape.fill")
 //                            .resizable()
-//                            .frame(width: 24, height: 24)
-//                            .tint(.blue)
+//                            .frame(width: Dimensions.L, height: Dimensions.L)
+//                            .tint(AppColor.primary)
 //                    }
 //                }
-//                .padding(16)
+//                .padding(Dimensions.M)
 //        }
 //        .safeAreaInset(edge: .top, alignment: .center) {
 //            Button(action: {
@@ -98,7 +99,7 @@ struct MapView: View {
 //            }) {
 //                Text("Update to PRO")
 //                    .padding()
-//                    .background(.blue)
+//                    .background(AppColor.primary)
 //                    .foregroundStyle(.white)
 //                    .bold()
 //                    .font(.nunitoBody)

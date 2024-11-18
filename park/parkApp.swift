@@ -25,6 +25,9 @@ struct parkApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .onAppear {
+                    self.locationManager.requestLocation()
+                }
                 .environmentObject(self.locationManager)
         }
         .modelContainer(self.container)

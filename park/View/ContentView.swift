@@ -5,6 +5,7 @@
 import MapKit
 import SwiftUI
 import SwiftData
+import vegaDesignSystem
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
@@ -22,7 +23,6 @@ struct ContentView: View {
     @State private var travelTime: String?
     @State private var selectedPosition: CLLocationCoordinate2D = .init()
     @State private var isParkSelected: Bool = false
-    @State private var isParkSelectedDotAnimation: Bool = false
     @State private var isParkAlertShow: Bool = false
     @State private var isShowDirections: Bool = false
 
@@ -32,9 +32,9 @@ struct ContentView: View {
 
             Image(systemName: "mappin")
                 .resizable()
-                .frame(width: 16, height: 48)
-                .foregroundColor(.red)
-                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - 64))
+                .frame(width: Dimensions.M, height: 48)
+                .foregroundColor(AppColor.accent)
+                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - 70))
 
             if let lookAroundScene {
                 LookAroundPreview(initialScene: lookAroundScene)
@@ -49,21 +49,21 @@ struct ContentView: View {
                     .font(.caption)
                     .foregroundStyle(.black)
                     .background(.thinMaterial)
-                    .cornerRadius(16)
+                    .cornerRadius(Dimensions.M)
                     .shadow(radius: 4)
                     .position(CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height - 264))
             }
 
             ZStack {
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color.white)
+                RoundedRectangle(cornerRadius: Dimensions.M)
+                    .fill(AppColor.background)
                     .shadow(radius: 4)
                     .frame(width: 300, height: 84)
 
                 HStack {
                     Spacer()
-                        .frame(width: 24, height: 24)
-                        .padding(32)
+                        .frame(width: Dimensions.L, height: Dimensions.L)
+                        .padding(Dimensions.XL)
 
                     Button(action: {
                         guard let source = self.locationManager.location,
@@ -71,10 +71,18 @@ struct ContentView: View {
                         self.isShowDirections.toggle()
                         self.getDirections(source, destination: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
                     }) {
-                        Image(systemName: "figure.walk.circle.fill")
-                            .resizable()
-                            .frame(width: 32, height: 32)
-                            .tint(self.isShowDirections ? .gray : .blue)
+                        if self.isParkSelected {
+                            Image(systemName: "figure.walk.circle.fill")
+                                .resizable()
+                                .frame(width: Dimensions.XL, height: Dimensions.XL)
+                                .tint(self.isShowDirections ? AppColor.disabled : AppColor.primary)
+                        } else {
+                            Image(systemName: "figure.walk.circle.fill")
+                                .resizable()
+                                .frame(width: Dimensions.XL, height: Dimensions.XL)
+                                .tint(AppColor.disabled)
+                                .disabled(true)
+                        }
                     }
 
                     Button(action: {
@@ -87,22 +95,23 @@ struct ContentView: View {
                             self.modelContext.insert(ParkModel(latitude: self.selectedPosition.latitude,
                                                                longitude: self.selectedPosition.longitude, timestamp: Date(),
                                                                isSelected: true))
-                            self.isParkSelected.toggle()
-                            self.startBlinking()
-                        }
-                    }) {
-                        ZStack(alignment: .topTrailing) {
-                            Image(systemName: "parkingsign.circle.fill")
-                                .resizable()
-                                .frame(width: 48, height: 48)
-                                .tint(self.isParkSelected ? .gray : .blue)
-                            if self.isParkSelected, self.isParkSelectedDotAnimation {
-                                Circle()
-                                    .frame(width: 16, height: 16)
-                                    .foregroundStyle(.red)
+                            withAnimation {
+                                self.isParkSelected.toggle()
                             }
                         }
-                        .frame(width: 48, height: 48)
+                    }) {
+                        ZStack(alignment: .center) {
+                            Image(systemName: "parkingsign.circle.fill")
+                                .resizable()
+                                .frame(width: Dimensions.XXL, height: Dimensions.XXL)
+                                .tint(self.isParkSelected ? AppColor.disabled : AppColor.primary)
+                            if self.isParkSelected {
+                                Circle()
+                                    .stroke(AppColor.accent, lineWidth: Dimensions.XS)
+                                    .frame(width: Dimensions.XXL, height: Dimensions.XXL)
+                            }
+                        }
+                        .frame(width: Dimensions.XXXL, height: Dimensions.XXXL)
                     }
                     .frame(maxWidth: .infinity)
 
@@ -111,13 +120,13 @@ struct ContentView: View {
                     }) {
                         Image(systemName: "location.circle.fill")
                             .resizable()
-                            .frame(width: 32, height: 32)
-                            .tint(.blue)
+                            .frame(width: Dimensions.XL, height: Dimensions.XL)
+                            .tint(AppColor.primary)
                     }
 
                     Spacer()
-                        .frame(width: 24, height: 24)
-                        .padding(32)
+                        .frame(width: Dimensions.L, height: Dimensions.L)
+                        .padding(Dimensions.XL)
                 }
             }
             .position(CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height - 180))
@@ -129,10 +138,6 @@ struct ContentView: View {
         .onAppear {
             guard let lastLocation = self.locations.last else { return }
             self.isParkSelected = lastLocation.isSelected
-            
-            if self.isParkSelected {
-                self.startBlinking()
-            }
         }
         .alert(isPresented: self.$isParkAlertShow) {
             Alert(title: Text("¿Has llegado a tu coche?"),
@@ -140,7 +145,9 @@ struct ContentView: View {
                   primaryButton: .cancel(Text("Cancelar"), action: {}),
                   secondaryButton: .default(Text("Desaparcar"), action: {
                 if let lastLocation = self.locations.last, lastLocation.isSelected {
-                    self.isParkSelected.toggle()
+                    withAnimation {
+                        self.isParkSelected.toggle()
+                    }
                     self.modelContext.delete(lastLocation)
                 }
             }))
@@ -174,11 +181,5 @@ struct ContentView: View {
         formatter.unitsStyle = .full
         formatter.allowedUnits = [.hour, .minute]
         self.travelTime = formatter.string(from: route.expectedTravelTime)
-    }
-    
-    private func startBlinking() {
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { _ in
-            self.isParkSelectedDotAnimation.toggle()
-        }
     }
 }

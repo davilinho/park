@@ -4,6 +4,7 @@
 
 import SwiftUI
 import SwiftData
+import vegaDesignSystem
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
@@ -21,7 +22,7 @@ struct SettingsView: View {
                     }
                 }
             }
-            .padding(16)
+            .padding(Dimensions.M)
             Button("Press to dismiss") {
                 self.isShowing.toggle()
                 self.dismiss()

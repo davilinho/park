@@ -3,7 +3,8 @@
 //
 
 import SwiftUI
+import vegaDesignSystem
 
 extension Font {
-    static let nunitoBody: Font = .custom("Nunito-VariableFont_wght", size: 16)
+    static let nunitoBody: Font = .custom("Nunito-VariableFont_wght", size: Dimensions.M)
 }
