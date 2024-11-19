@@ -1,10 +1,10 @@
 {
-  "originHash" : "a4cb2cda20cb36c3fdb17a1bebfa3977f64b7ef38d569a0df9534fdd099cb2c4",
+  "originHash" : "42d286e5446b86f8dd56a7cf0f1db44334bba0db20665e8117b904d8a6668600",
   "pins" : [
     {
       "identity" : "vegadesignsystem",
       "kind" : "remoteSourceControl",
-      "location" : "git@github.com:davilinho/vegaDesignSystem.git",
+      "location" : "https://github.com/davilinho/vegaDesignSystem.git",
       "state" : {
         "branch" : "main",
         "revision" : "e09ca0c34fe5b6f83aeaa63e032924d629d5d14c"

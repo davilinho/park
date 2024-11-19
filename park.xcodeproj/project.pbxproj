@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		390A28932CEBB0440080A776 /* vegaDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28922CEBB0440080A776 /* vegaDesignSystem */; };
+		390A28962CEC867A0080A776 /* vegaDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28952CEC867A0080A776 /* vegaDesignSystem */; };
 		D548BBC42BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D548BBC32BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf */; };
 		D57A8B692B85DB14004A57B8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57A8B682B85DB14004A57B8 /* SettingsView.swift */; };
 		D57A8B6B2B879617004A57B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */; };
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				390A28962CEC867A0080A776 /* vegaDesignSystem in Frameworks */,
 				390A28932CEBB0440080A776 /* vegaDesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -269,7 +271,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1510;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					D5FD21EE2B7BD7320034E9C0 = {
 						CreatedOnToolsVersion = 15.1;
@@ -294,7 +296,7 @@
 			);
 			mainGroup = D5FD21E62B7BD7320034E9C0;
 			packageReferences = (
-				390A28912CEBB0440080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */,
+				390A28942CEC867A0080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */,
 			);
 			productRefGroup = D5FD21F02B7BD7320034E9C0 /* Products */;
 			projectDirPath = "";
@@ -418,6 +420,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -479,6 +482,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -507,6 +511,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"park/Preview Content\"";
 				DEVELOPMENT_TEAM = 9U2SD7A9BN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -555,6 +560,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"park/Preview Content\"";
 				DEVELOPMENT_TEAM = 9U2SD7A9BN;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -597,10 +603,10 @@
 		D5FD221B2B7BD7340034E9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 962B32PZSY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -621,10 +627,10 @@
 		D5FD221C2B7BD7340034E9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 962B32PZSY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -645,9 +651,9 @@
 		D5FD221E2B7BD7340034E9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 962B32PZSY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -668,9 +674,9 @@
 		D5FD221F2B7BD7340034E9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 962B32PZSY;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -738,12 +744,25 @@
 				kind = branch;
 			};
 		};
+		390A28942CEC867A0080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davilinho/vegaDesignSystem.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
 		390A28922CEBB0440080A776 /* vegaDesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 390A28912CEBB0440080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */;
+			productName = vegaDesignSystem;
+		};
+		390A28952CEC867A0080A776 /* vegaDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28942CEC867A0080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */;
 			productName = vegaDesignSystem;
 		};
 /* End XCSwiftPackageProductDependency section */
