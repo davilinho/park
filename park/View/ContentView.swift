@@ -158,7 +158,7 @@ struct ContentView: View {
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
-        request.transportType = .automobile
+        request.transportType = .walking
 
         Task {
             let result = try? await MKDirections(request: request).calculate()
