@@ -2,11 +2,21 @@
 // Created by David Martin on 13/2/24.
 //
 
+import FirebaseCore
 import SwiftUI
 import SwiftData
 
+class AppDelegate: NSObject, UIApplicationDelegate {
+    func application(_ application: UIApplication,
+                     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil) -> Bool {
+        FirebaseApp.configure()
+        return true
+    }
+}
+
 @main
 struct parkApp: App {
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
     @ObservedObject var locationManager = LocationManager()
 
     var container: ModelContainer = {

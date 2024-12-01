@@ -29,7 +29,7 @@ struct SettingsView: View {
             }
             Spacer()
         }
-        .font(.title)
+        .font(AppFont.nunitoBody)
         .padding()
     }
 }

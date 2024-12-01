@@ -2,6 +2,7 @@
 // Created by David Martin on 13/2/24.
 //
 
+import FirebaseAnalytics
 import MapKit
 import SwiftUI
 import SwiftData
@@ -18,6 +19,7 @@ struct ContentView: View {
 
     @StateObject private var bluetoothManager = BluetoothManager()
 
+    @State private var isLoading: Bool = true
     @State private var route: MKRoute?
     @State private var lookAroundScene: MKLookAroundScene?
     @State private var travelTime: String?
@@ -28,13 +30,17 @@ struct ContentView: View {
 
     var body: some View {
         ZStack {
-            MapView(selectedPosition: self.$selectedPosition, route: self.$route, isParkSelected: self.$isParkSelected, isShowDirections: self.$isShowDirections)
+            MapView(isLoading: self.$isLoading,
+                    selectedPosition: self.$selectedPosition,
+                    route: self.$route,
+                    isParkSelected: self.$isParkSelected,
+                    isShowDirections: self.$isShowDirections)
 
-            Image(systemName: "mappin")
+            AppIcons.pin
                 .resizable()
-                .frame(width: Dimensions.M, height: 48)
+                .frame(width: Dimensions.M, height: Dimensions.XXL)
                 .foregroundColor(AppColor.accent)
-                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - 70))
+                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - Dimensions.L))
 
             if let lookAroundScene {
                 LookAroundPreview(initialScene: lookAroundScene)
@@ -46,8 +52,8 @@ struct ContentView: View {
             if let travelTime, self.isShowDirections {
                 Text("Tiempo estimado de llegada: \(travelTime)")
                     .padding()
-                    .font(.caption)
-                    .foregroundStyle(.black)
+                    .font(AppFont.nunitoBody)
+                    .foregroundStyle(AppColor.primary)
                     .background(.thinMaterial)
                     .cornerRadius(Dimensions.M)
                     .shadow(radius: 4)
@@ -72,12 +78,12 @@ struct ContentView: View {
                         self.getDirections(source, destination: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
                     }) {
                         if self.isParkSelected {
-                            Image(systemName: "figure.walk.circle.fill")
+                            AppIcons.track
                                 .resizable()
                                 .frame(width: Dimensions.XL, height: Dimensions.XL)
                                 .tint(self.isShowDirections ? AppColor.disabled : AppColor.primary)
                         } else {
-                            Image(systemName: "figure.walk.circle.fill")
+                            AppIcons.track
                                 .resizable()
                                 .frame(width: Dimensions.XL, height: Dimensions.XL)
                                 .tint(AppColor.disabled)
@@ -101,7 +107,7 @@ struct ContentView: View {
                         }
                     }) {
                         ZStack(alignment: .center) {
-                            Image(systemName: "parkingsign.circle.fill")
+                            AppIcons.parking
                                 .resizable()
                                 .frame(width: Dimensions.XXL, height: Dimensions.XXL)
                                 .tint(self.isParkSelected ? AppColor.disabled : AppColor.primary)
@@ -118,7 +124,7 @@ struct ContentView: View {
                     Button(action: {
                         self.locationManager.requestLocation()
                     }) {
-                        Image(systemName: "location.circle.fill")
+                        AppIcons.location
                             .resizable()
                             .frame(width: Dimensions.XL, height: Dimensions.XL)
                             .tint(AppColor.primary)
@@ -130,6 +136,20 @@ struct ContentView: View {
                 }
             }
             .position(CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height - 180))
+
+            if self.isLoading {
+                ZStack {
+                    Color.black.opacity(0.75)
+                        .ignoresSafeArea()
+                    
+                    ProgressView()
+                        .progressViewStyle(CircularProgressViewStyle(tint: .white))
+                        .scaleEffect(2)
+                        .position(CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height / 2))
+                }
+                .transition(.opacity)
+                .animation(.easeInOut, value: self.isLoading)
+            }
         }
         .environmentObject(self.locationManager)
         .onAppear {
@@ -158,7 +178,7 @@ struct ContentView: View {
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
-        request.transportType = .walking
+        request.transportType = .automobile
 
         Task {
             let result = try? await MKDirections(request: request).calculate()

@@ -14,11 +14,13 @@ struct MapView: View {
     @State private var position: MapCameraPosition = MapCameraPosition.automatic
     @Query private var locations: [ParkModel]
 
+    @Binding var isLoading: Bool
     @Binding var selectedPosition: CLLocationCoordinate2D
 
     @Binding var route: MKRoute?
     @Binding var isParkSelected: Bool
     @Binding var isShowDirections: Bool
+    @State private var isShowShareAction: Bool = false
     @State private var isActionSheetShow: Bool = true
     @State private var isSettingsSheetShow: Bool = false
 
@@ -30,11 +32,11 @@ struct MapView: View {
                         Annotation("", coordinate: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude)) {
                             ZStack {
                                 Circle()
-                                    .fill(.white)
-                                    .frame(width: 54, height: 54)
-                                Image(systemName: "car.circle")
+                                    .fill(AppColor.background)
+                                    .frame(width: Dimensions.XXXL, height: Dimensions.XXXL)
+                                AppIcons.car
                                     .resizable()
-                                    .frame(width: 44, height: 44)
+                                    .frame(width: Dimensions.XXL, height: Dimensions.XXL)
                                     .foregroundColor(AppColor.primary)
                             }
                             .shadow(radius: 4)
@@ -45,9 +47,9 @@ struct MapView: View {
                         Annotation("", coordinate: position) {
                             ZStack {
                                 Circle()
-                                    .fill(.white)
+                                    .fill(AppColor.background)
                                     .frame(width: Dimensions.XL, height: Dimensions.XL)
-                                Image(systemName: "smallcircle.filled.circle.fill")
+                                AppIcons.marker
                                     .resizable()
                                     .frame(width: Dimensions.L, height: Dimensions.L)
                                     .foregroundColor(AppColor.primary)
@@ -73,6 +75,23 @@ struct MapView: View {
                         }
                     }
                 }
+            }
+        }
+        .safeAreaInset(edge: .top, alignment: .trailing) {
+            Button {
+                self.isShowShareAction.toggle()
+            } label: {
+                RoundedRectangle(cornerRadius: Dimensions.S)
+                    .fill(.thinMaterial)
+                    .shadow(radius: Dimensions.XS)
+                    .frame(width: Dimensions.XXL, height: Dimensions.XXL)
+                    .overlay {
+                        AppIcons.share
+                            .resizable()
+                            .frame(width: Dimensions.XL, height: Dimensions.XL)
+                            .tint(AppColor.primary)
+                    }
+                    .padding(Dimensions.M)
             }
         }
 //        .safeAreaInset(edge: .top, alignment: .trailing) {
@@ -130,7 +149,30 @@ struct MapView: View {
                         span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
                     )
                 )
+                self.isLoading = false
             }
         }
+        .onChange(of: self.isShowDirections) { oldValue, newValue in
+            guard oldValue != newValue, let route else { return }
+            withAnimation {
+                self.position = MapCameraPosition.camera(MapCamera(centerCoordinate: route.polyline.coordinate, distance: route.distance))
+            }
+        }
+        .onChange(of: self.isShowShareAction) { oldValue, newValue in
+            guard oldValue != newValue else { return }
+            self.sharePark()
+        }
+    }
+    
+    private func sharePark() {
+        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+              let rootViewController = windowScene.windows.first?.rootViewController else {
+            return
+        }
+
+        guard let location = self.locations.last else { return }
+        let mapsIntentUrl = "https://www.google.com/maps/dir/?api=1&destination=\(location.latitude),\(location.longitude)&travelmode=walking"
+        let activityViewController = UIActivityViewController(activityItems: ["El coche está aparcado aquí: \(mapsIntentUrl)"], applicationActivities: nil)
+        rootViewController.present(activityViewController, animated: true, completion: nil)
     }
 }
