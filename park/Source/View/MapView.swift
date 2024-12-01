@@ -93,6 +93,7 @@ struct MapView: View {
                     }
                     .padding(Dimensions.M)
             }
+            .disabled(!self.isParkSelected)
         }
 //        .safeAreaInset(edge: .top, alignment: .trailing) {
 //            RoundedRectangle(cornerRadius: 8)

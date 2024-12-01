@@ -178,7 +178,7 @@ struct ContentView: View {
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
-        request.transportType = .automobile
+        request.transportType = .walking
 
         Task {
             let result = try? await MKDirections(request: request).calculate()
@@ -188,10 +188,10 @@ struct ContentView: View {
     }
 
     func getLookAroundScene(_ position: CLLocationCoordinate2D) {
-        lookAroundScene = nil
+        self.lookAroundScene = nil
         Task {
             let request = MKLookAroundSceneRequest(coordinate: position)
-            lookAroundScene = try? await request.scene
+            self.lookAroundScene = try? await request.scene
         }
     }
 
