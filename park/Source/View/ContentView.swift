@@ -95,15 +95,7 @@ struct ContentView: View {
                         if let lastLocation = self.locations.last, lastLocation.isSelected {
                             self.isParkAlertShow.toggle()
                         } else {
-                            self.locations.forEach { location in
-                                location.isSelected = false
-                            }
-                            self.modelContext.insert(ParkModel(latitude: self.selectedPosition.latitude,
-                                                               longitude: self.selectedPosition.longitude, timestamp: Date(),
-                                                               isSelected: true))
-                            withAnimation {
-                                self.isParkSelected.toggle()
-                            }
+                            self.park()
                         }
                     }) {
                         ZStack(alignment: .center) {
@@ -161,20 +153,18 @@ struct ContentView: View {
         }
         .alert(isPresented: self.$isParkAlertShow) {
             Alert(title: Text("¿Has llegado a tu coche?"),
-                  message: Text("Indica si quieres desaparcar"),
-                  primaryButton: .cancel(Text("Cancelar"), action: {}),
-                  secondaryButton: .default(Text("Desaparcar"), action: {
-                if let lastLocation = self.locations.last, lastLocation.isSelected {
-                    withAnimation {
-                        self.isParkSelected.toggle()
-                    }
-                    self.modelContext.delete(lastLocation)
-                }
+                  message: Text("Indica si quieres desaparcar o voler a aparcar"),
+                  primaryButton: .default(Text("Desaparcar"), action: {
+                self.unPark()
+            }),
+                  secondaryButton: .default(Text("Volver a aparcar"), action: {
+                self.unPark()
+                self.park()
             }))
         }
     }
 
-    func getDirections(_ source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
+    private func getDirections(_ source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
         request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
@@ -201,5 +191,27 @@ struct ContentView: View {
         formatter.unitsStyle = .full
         formatter.allowedUnits = [.hour, .minute]
         self.travelTime = formatter.string(from: route.expectedTravelTime)
+    }
+    
+    private func unPark() {
+        if let lastLocation = self.locations.last, lastLocation.isSelected {
+            withAnimation {
+                self.isParkSelected.toggle()
+            }
+            self.modelContext.delete(lastLocation)
+            self.isShowDirections = false
+        }
+    }
+    
+    private func park() {
+        self.locations.forEach { location in
+            location.isSelected = false
+        }
+        self.modelContext.insert(ParkModel(latitude: self.selectedPosition.latitude,
+                                           longitude: self.selectedPosition.longitude, timestamp: Date(),
+                                           isSelected: true))
+        withAnimation {
+            self.isParkSelected.toggle()
+        }
     }
 }
