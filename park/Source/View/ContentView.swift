@@ -36,11 +36,13 @@ struct ContentView: View {
                     isParkSelected: self.$isParkSelected,
                     isShowDirections: self.$isShowDirections)
 
-            AppIcons.pin
-                .resizable()
-                .frame(width: Dimensions.M, height: Dimensions.XXL)
-                .foregroundColor(AppColor.accent)
-                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - Dimensions.L))
+            if !self.isShowDirections {
+                AppIcons.pin
+                    .resizable()
+                    .frame(width: Dimensions.M, height: Dimensions.XXL)
+                    .foregroundColor(AppColor.accent)
+                    .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - Dimensions.L))
+            }
 
             if let lookAroundScene {
                 LookAroundPreview(initialScene: lookAroundScene)
@@ -153,13 +155,13 @@ struct ContentView: View {
         }
         .alert(isPresented: self.$isParkAlertShow) {
             Alert(title: Text("¿Has llegado a tu coche?"),
-                  message: Text("Indica si quieres desaparcar o voler a aparcar"),
-                  primaryButton: .default(Text("Desaparcar"), action: {
-                self.unPark()
-            }),
-                  secondaryButton: .default(Text("Volver a aparcar"), action: {
+                  message: Text("Indica si quieres aparcar"),
+                  primaryButton: .default(Text("Aparcar"), action: {
                 self.unPark()
                 self.park()
+            }),
+                  secondaryButton: .destructive(Text("Cerrar"), action: {
+                self.isParkAlertShow.toggle()
             }))
         }
     }

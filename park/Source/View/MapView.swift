@@ -154,9 +154,15 @@ struct MapView: View {
             }
         }
         .onChange(of: self.isShowDirections) { oldValue, newValue in
-            guard oldValue != newValue, let route else { return }
             withAnimation {
-                self.position = MapCameraPosition.camera(MapCamera(centerCoordinate: route.polyline.coordinate, distance: route.distance))
+                guard oldValue != newValue, newValue,
+                      let lastLocation = self.locations.last, lastLocation.isSelected else { return }
+                self.position = MapCameraPosition.region(
+                    MKCoordinateRegion(
+                        center: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude),
+                        span: MKCoordinateSpan(latitudeDelta: 0.003, longitudeDelta: 0.003)
+                    )
+                )
             }
         }
         .onChange(of: self.isShowShareAction) { oldValue, newValue in
