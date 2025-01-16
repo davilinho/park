@@ -3,26 +3,22 @@
 //
 
 import FirebaseAnalytics
-import MapKit
+@preconcurrency import MapKit
 import SwiftUI
 import SwiftData
 import vegaDesignSystem
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
-
-//    @AppStorage("isParkSelected") var isParkSelected = false
-
-//    @StateObject var locationManager = LocationManager()
     @EnvironmentObject var locationManager: LocationManager
     @Query private var locations: [ParkModel]
+    
+    @Bindable var viewModel: ContentViewModel
 
     @StateObject private var bluetoothManager = BluetoothManager()
 
     @State private var isLoading: Bool = true
-    @State private var route: MKRoute?
     @State private var lookAroundScene: MKLookAroundScene?
-    @State private var travelTime: String?
     @State private var selectedPosition: CLLocationCoordinate2D = .init()
     @State private var isParkSelected: Bool = false
     @State private var isParkAlertShow: Bool = false
@@ -32,17 +28,15 @@ struct ContentView: View {
         ZStack {
             MapView(isLoading: self.$isLoading,
                     selectedPosition: self.$selectedPosition,
-                    route: self.$route,
+                    route: self.$viewModel.route,
                     isParkSelected: self.$isParkSelected,
                     isShowDirections: self.$isShowDirections)
 
-            if !self.isShowDirections {
-                AppIcons.pin
-                    .resizable()
-                    .frame(width: Dimensions.M, height: Dimensions.XXL)
-                    .foregroundColor(AppColor.accent)
-                    .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - Dimensions.L))
-            }
+            AppIcons.pin
+                .resizable()
+                .frame(width: Dimensions.M, height: Dimensions.XXL)
+                .foregroundColor(AppColor.accent)
+                .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - Dimensions.L))
 
             if let lookAroundScene {
                 LookAroundPreview(initialScene: lookAroundScene)
@@ -51,7 +45,7 @@ struct ContentView: View {
                     .padding([.top, .horizontal])
             }
 
-            if let travelTime, self.isShowDirections {
+            if let travelTime = self.viewModel.travelTime, self.isShowDirections {
                 Text("Tiempo estimado de llegada: \(travelTime)")
                     .padding()
                     .font(AppFont.nunitoBody)
@@ -77,7 +71,7 @@ struct ContentView: View {
                         guard let source = self.locationManager.location,
                               let lastLocation = self.locations.last, lastLocation.isSelected else { return }
                         self.isShowDirections.toggle()
-                        self.getDirections(source, destination: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
+                        self.viewModel.getDirections(source, destination: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
                     }) {
                         if self.isParkSelected {
                             AppIcons.track
@@ -166,33 +160,12 @@ struct ContentView: View {
         }
     }
 
-    private func getDirections(_ source: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
-        let request = MKDirections.Request()
-        request.source = MKMapItem(placemark: MKPlacemark(coordinate: source))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: destination))
-        request.transportType = .walking
-
-        Task {
-            let result = try? await MKDirections(request: request).calculate()
-            self.route = result?.routes.first
-            self.getTravelTime()
-        }
-    }
-
     func getLookAroundScene(_ position: CLLocationCoordinate2D) {
         self.lookAroundScene = nil
         Task {
             let request = MKLookAroundSceneRequest(coordinate: position)
             self.lookAroundScene = try? await request.scene
         }
-    }
-
-    private func getTravelTime() {
-        guard let route else { return }
-        let formatter = DateComponentsFormatter()
-        formatter.unitsStyle = .full
-        formatter.allowedUnits = [.hour, .minute]
-        self.travelTime = formatter.string(from: route.expectedTravelTime)
     }
     
     private func unPark() {

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 70;
+	objectVersion = 56;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,9 +19,7 @@
 		390A28A92CEDD1990080A776 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28A82CEDD1990080A776 /* FirebasePerformance */; };
 		390A28AB2CEDD1990080A776 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28AA2CEDD1990080A776 /* FirebaseStorage */; };
 		390A28AE2CEDD6300080A776 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 390A28AC2CEDD5130080A776 /* GoogleService-Info.plist */; };
-		397BD70D2D101FD300DC426F /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397BD70C2D101FD300DC426F /* WidgetKit.framework */; };
-		397BD70F2D101FD300DC426F /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397BD70E2D101FD300DC426F /* SwiftUI.framework */; };
-		397BD7202D101FD500DC426F /* ParkWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 397BD70A2D101FD300DC426F /* ParkWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		39A05B1E2D37BE750011AE56 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A05B1D2D37BE720011AE56 /* ContentViewModel.swift */; };
 		39C04BDC2CFBD865001F6C95 /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C04BDB2CFBD863001F6C95 /* AppIcons.swift */; };
 		D57A8B692B85DB14004A57B8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57A8B682B85DB14004A57B8 /* SettingsView.swift */; };
 		D57A8B6B2B879617004A57B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */; };
@@ -38,13 +36,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		397BD71E2D101FD500DC426F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5FD21E72B7BD7320034E9C0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 397BD7092D101FD300DC426F;
-			remoteInfo = ParkWidgetExtension;
-		};
 		D5FD22042B7BD7340034E9C0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D5FD21E72B7BD7320034E9C0 /* Project object */;
@@ -61,26 +52,11 @@
 		};
 /* End PBXContainerItemProxy section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		397BD7212D101FD500DC426F /* Embed Foundation Extensions */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 13;
-			files = (
-				397BD7202D101FD500DC426F /* ParkWidgetExtension.appex in Embed Foundation Extensions */,
-			);
-			name = "Embed Foundation Extensions";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
 		390A28AC2CEDD5130080A776 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		397BD70A2D101FD300DC426F /* ParkWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = ParkWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		397BD70C2D101FD300DC426F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		397BD70E2D101FD300DC426F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
-		397BD7292D10234B00DC426F /* ParkWidgetExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ParkWidgetExtension.entitlements; sourceTree = "<group>"; };
+		39A05B1D2D37BE720011AE56 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		39C04BDB2CFBD863001F6C95 /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		D57A8B682B85DB14004A57B8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
@@ -101,30 +77,7 @@
 		D5FD22272B7D0B3F0034E9C0 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		397BD7242D101FD500DC426F /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 397BD7092D101FD300DC426F /* ParkWidgetExtension */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		397BD7102D101FD300DC426F /* ParkWidget */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (397BD7242D101FD500DC426F /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); explicitFileTypes = {}; explicitFolders = (); path = ParkWidget; sourceTree = "<group>"; };
-/* End PBXFileSystemSynchronizedRootGroup section */
-
 /* Begin PBXFrameworksBuildPhase section */
-		397BD7072D101FD300DC426F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				397BD70F2D101FD300DC426F /* SwiftUI.framework in Frameworks */,
-				397BD70D2D101FD300DC426F /* WidgetKit.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5FD21EC2B7BD7320034E9C0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -169,11 +122,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		39A05B1A2D37BC680011AE56 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				39A05B1B2D37BC730011AE56 /* View */,
+				39A05B1C2D37BC770011AE56 /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		39A05B1B2D37BC730011AE56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5FD21F42B7BD7320034E9C0 /* ContentView.swift */,
+				D5FD22242B7BDEFE0034E9C0 /* MapView.swift */,
+				D57A8B682B85DB14004A57B8 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39A05B1C2D37BC770011AE56 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				39A05B1D2D37BE720011AE56 /* ContentViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		39C04BDD2CFBD871001F6C95 /* Source */ = {
 			isa = PBXGroup;
 			children = (
 				D5FD22262B7D0B320034E9C0 /* Domain */,
 				D5FD22202B7BD8220034E9C0 /* Model */,
+				39A05B1A2D37BC680011AE56 /* Presentation */,
 				D5BAAA662BBF21C70048D27C /* Shared */,
 				D5FD22232B7BD8960034E9C0 /* View */,
 			);
@@ -199,12 +180,10 @@
 		D5FD21E62B7BD7320034E9C0 = {
 			isa = PBXGroup;
 			children = (
-				397BD7292D10234B00DC426F /* ParkWidgetExtension.entitlements */,
 				D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */,
 				D5FD21F12B7BD7320034E9C0 /* park */,
 				D5FD22062B7BD7340034E9C0 /* parkTests */,
 				D5FD22102B7BD7340034E9C0 /* parkUITests */,
-				397BD7102D101FD300DC426F /* ParkWidget */,
 				397BD70B2D101FD300DC426F /* Frameworks */,
 				D5FD21F02B7BD7320034E9C0 /* Products */,
 			);
@@ -216,7 +195,6 @@
 				D5FD21EF2B7BD7320034E9C0 /* park.app */,
 				D5FD22032B7BD7340034E9C0 /* parkTests.xctest */,
 				D5FD220D2B7BD7340034E9C0 /* parkUITests.xctest */,
-				397BD70A2D101FD300DC426F /* ParkWidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -262,9 +240,6 @@
 		D5FD22232B7BD8960034E9C0 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				D5FD21F42B7BD7320034E9C0 /* ContentView.swift */,
-				D5FD22242B7BDEFE0034E9C0 /* MapView.swift */,
-				D57A8B682B85DB14004A57B8 /* SettingsView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -281,28 +256,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		397BD7092D101FD300DC426F /* ParkWidgetExtension */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 397BD7252D101FD500DC426F /* Build configuration list for PBXNativeTarget "ParkWidgetExtension" */;
-			buildPhases = (
-				397BD7062D101FD300DC426F /* Sources */,
-				397BD7072D101FD300DC426F /* Frameworks */,
-				397BD7082D101FD300DC426F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				397BD7102D101FD300DC426F /* ParkWidget */,
-			);
-			name = ParkWidgetExtension;
-			packageProductDependencies = (
-			);
-			productName = ParkWidgetExtension;
-			productReference = 397BD70A2D101FD300DC426F /* ParkWidgetExtension.appex */;
-			productType = "com.apple.product-type.app-extension";
-		};
 		D5FD21EE2B7BD7320034E9C0 /* park */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = D5FD22172B7BD7340034E9C0 /* Build configuration list for PBXNativeTarget "park" */;
@@ -310,12 +263,10 @@
 				D5FD21EB2B7BD7320034E9C0 /* Sources */,
 				D5FD21EC2B7BD7320034E9C0 /* Frameworks */,
 				D5FD21ED2B7BD7320034E9C0 /* Resources */,
-				397BD7212D101FD500DC426F /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				397BD71F2D101FD500DC426F /* PBXTargetDependency */,
 			);
 			name = park;
 			productName = park;
@@ -368,9 +319,6 @@
 				LastSwiftUpdateCheck = 1620;
 				LastUpgradeCheck = 1610;
 				TargetAttributes = {
-					397BD7092D101FD300DC426F = {
-						CreatedOnToolsVersion = 16.2;
-					};
 					D5FD21EE2B7BD7320034E9C0 = {
 						CreatedOnToolsVersion = 15.1;
 					};
@@ -404,19 +352,11 @@
 				D5FD21EE2B7BD7320034E9C0 /* park */,
 				D5FD22022B7BD7340034E9C0 /* parkTests */,
 				D5FD220C2B7BD7340034E9C0 /* parkUITests */,
-				397BD7092D101FD300DC426F /* ParkWidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		397BD7082D101FD300DC426F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5FD21ED2B7BD7320034E9C0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -444,13 +384,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		397BD7062D101FD300DC426F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		D5FD21EB2B7BD7320034E9C0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -460,6 +393,7 @@
 				D58368072C1216DB0003AD0A /* BluetoothManager.swift in Sources */,
 				D5FD22222B7BD83D0034E9C0 /* ParkModel.swift in Sources */,
 				D5FD22282B7D0B3F0034E9C0 /* LocationManager.swift in Sources */,
+				39A05B1E2D37BE750011AE56 /* ContentViewModel.swift in Sources */,
 				D5FD22252B7BDEFE0034E9C0 /* MapView.swift in Sources */,
 				39C04BDC2CFBD865001F6C95 /* AppIcons.swift in Sources */,
 				D5FD21F32B7BD7320034E9C0 /* parkApp.swift in Sources */,
@@ -486,11 +420,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		397BD71F2D101FD500DC426F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 397BD7092D101FD300DC426F /* ParkWidgetExtension */;
-			targetProxy = 397BD71E2D101FD500DC426F /* PBXContainerItemProxy */;
-		};
 		D5FD22052B7BD7340034E9C0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = D5FD21EE2B7BD7320034E9C0 /* park */;
@@ -504,69 +433,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		397BD7222D101FD500DC426F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = ParkWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MCUFY86P42;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ParkWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ParkWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dmn.tech.park.ParkWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		397BD7232D101FD500DC426F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
-				CODE_SIGN_ENTITLEMENTS = ParkWidgetExtension.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = MCUFY86P42;
-				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ParkWidget/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = ParkWidget;
-				INFOPLIST_KEY_NSHumanReadableCopyright = "";
-				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@executable_path/../../Frameworks",
-				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.dmn.tech.park.ParkWidget;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-			};
-			name = Release;
-		};
 		D5FD22152B7BD7340034E9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -626,6 +492,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -680,6 +547,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Release;
 		};
@@ -694,7 +562,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = MCUFY86P42;
+				DEVELOPMENT_TEAM = TJ2TNER4KE;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -743,7 +611,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = MCUFY86P42;
+				DEVELOPMENT_TEAM = TJ2TNER4KE;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -878,15 +746,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		397BD7252D101FD500DC426F /* Build configuration list for PBXNativeTarget "ParkWidgetExtension" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				397BD7222D101FD500DC426F /* Debug */,
-				397BD7232D101FD500DC426F /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		D5FD21EA2B7BD7320034E9C0 /* Build configuration list for PBXProject "park" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
