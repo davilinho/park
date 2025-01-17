@@ -8,23 +8,14 @@ import MapKit
 import vegaDesignSystem
 
 struct MapView: View {
-    @Environment(\.modelContext) private var modelContext
-    @EnvironmentObject var locationManager: LocationManager
+    @Environment(ParkViewModel.self) private var viewModel
 
     @State private var position: MapCameraPosition = MapCameraPosition.automatic
     @Query private var locations: [ParkModel]
 
-    @Binding var isLoading: Bool
-    @Binding var selectedPosition: CLLocationCoordinate2D
-
-    @Binding var route: MKRoute?
-    @Binding var isParkSelected: Bool
-    @Binding var isShowDirections: Bool
-    @State private var isShowShareAction: Bool = false
-    @State private var isActionSheetShow: Bool = true
-    @State private var isSettingsSheetShow: Bool = false
-
     var body: some View {
+        @Bindable var viewModel = self.viewModel
+
         VStack {
             MapReader { proxy in
                 Map(position: self.$position) {
@@ -43,7 +34,7 @@ struct MapView: View {
                         }
                     }
 
-                    if let position = self.locationManager.location {
+                    if let position = viewModel.locationManager.location {
                         Annotation("", coordinate: position) {
                             ZStack {
                                 Circle()
@@ -58,7 +49,7 @@ struct MapView: View {
                         }
                     }
 
-                    if let route, self.isShowDirections {
+                    if let route = viewModel.route, viewModel.uiStatus.isDirectionsShowing {
                         MapPolyline(route.polyline)
                             .stroke(AppColor.primary, lineWidth: 8)
                     }
@@ -77,71 +68,12 @@ struct MapView: View {
                 }
             }
         }
-        .safeAreaInset(edge: .top, alignment: .trailing) {
-            Button {
-                self.isShowShareAction.toggle()
-            } label: {
-                RoundedRectangle(cornerRadius: Dimensions.S)
-                    .fill(.thinMaterial)
-                    .shadow(radius: Dimensions.XS)
-                    .frame(width: Dimensions.XXL, height: Dimensions.XXL)
-                    .overlay {
-                        AppIcons.share
-                            .resizable()
-                            .frame(width: Dimensions.XL, height: Dimensions.XL)
-                            .tint(AppColor.primary)
-                    }
-                    .padding(Dimensions.M)
-            }
-            .disabled(!self.isParkSelected)
-        }
-//        .safeAreaInset(edge: .top, alignment: .trailing) {
-//            RoundedRectangle(cornerRadius: 8)
-//                .fill(.white)
-//                .shadow(radius: 4)
-//                .frame(width: 44, height: 44)
-//                .overlay {
-//                    Button(action: {
-//                        self.isActionSheetShow.toggle()
-//                        self.isSettingsSheetShow.toggle()
-//                    }) {
-//                        Image(systemName: "gearshape.fill")
-//                            .resizable()
-//                            .frame(width: Dimensions.L, height: Dimensions.L)
-//                            .tint(AppColor.primary)
-//                    }
-//                }
-//                .padding(Dimensions.M)
-//        }
-//        .safeAreaInset(edge: .top, alignment: .center) {
-//            Button(action: {
-//
-//            }) {
-//                Text("Update to PRO")
-//                    .padding()
-//                    .background(AppColor.primary)
-//                    .foregroundStyle(.white)
-//                    .bold()
-//                    .font(.nunitoBody)
-//            }
-//            .frame(height: 32)
-//            .clipShape(.capsule)
-//        }
-//        .sheet(isPresented: self.$isSettingsSheetShow) {
-//            SettingsView(isShowing: self.$isActionSheetShow)
-//                .presentationDetents([.large])
-//                .presentationDragIndicator(.visible)
-//                .presentationBackgroundInteraction(.enabled)
-////                .interactiveDismissDisabled()
-//                .padding(.top, 32)
-//                .presentationBackground(.white)
-//        }
         .onMapCameraChange { context in
             withAnimation {
-                self.selectedPosition = context.region.center
+                viewModel.selectedPosition = context.region.center
             }
         }
-        .onReceive(self.locationManager.$location) { newValue in
+        .onReceive(viewModel.locationManager.$location) { newValue in
             withAnimation {
                 guard let position = newValue else { return }
                 self.position = MapCameraPosition.region(
@@ -150,10 +82,10 @@ struct MapView: View {
                         span: MKCoordinateSpan(latitudeDelta: 0.002, longitudeDelta: 0.002)
                     )
                 )
-                self.isLoading = false
+                viewModel.set(uiStatus: .none)
             }
         }
-        .onChange(of: self.isShowDirections) { oldValue, newValue in
+        .onChange(of: viewModel.uiStatus.isDirectionsShowing) { oldValue, newValue in
             withAnimation {
                 guard oldValue != newValue, newValue,
                       let lastLocation = self.locations.last, lastLocation.isSelected else { return }
@@ -165,21 +97,5 @@ struct MapView: View {
                 )
             }
         }
-        .onChange(of: self.isShowShareAction) { oldValue, newValue in
-            guard oldValue != newValue else { return }
-            self.sharePark()
-        }
-    }
-    
-    private func sharePark() {
-        guard let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
-              let rootViewController = windowScene.windows.first?.rootViewController else {
-            return
-        }
-
-        guard let location = self.locations.last else { return }
-        let mapsIntentUrl = "https://www.google.com/maps/dir/?api=1&destination=\(location.latitude),\(location.longitude)&travelmode=walking"
-        let activityViewController = UIActivityViewController(activityItems: ["El coche está aparcado aquí: \(mapsIntentUrl)"], applicationActivities: nil)
-        rootViewController.present(activityViewController, animated: true, completion: nil)
     }
 }
