@@ -40,7 +40,6 @@ struct parkApp: App {
                 .onAppear {
                     viewModel.locationManager.requestLocation()
                 }
-                .environmentObject(viewModel.locationManager)
         }
         .modelContainer(self.container)
         .environment(self.viewModel)
