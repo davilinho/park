@@ -10,27 +10,25 @@ import vegaDesignSystem
 
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
+    @Environment(ContentViewModel.self) private var viewModel
+
     @EnvironmentObject var locationManager: LocationManager
     @Query private var locations: [ParkModel]
-    
-    @Bindable var viewModel: ContentViewModel
 
     @StateObject private var bluetoothManager = BluetoothManager()
 
-    @State private var isLoading: Bool = true
     @State private var lookAroundScene: MKLookAroundScene?
     @State private var selectedPosition: CLLocationCoordinate2D = .init()
-    @State private var isParkSelected: Bool = false
-    @State private var isParkAlertShow: Bool = false
-    @State private var isShowDirections: Bool = false
 
     var body: some View {
+        @Bindable var viewModel = self.viewModel
+
         ZStack {
-            MapView(isLoading: self.$isLoading,
+            MapView(isLoading: $viewModel.isLoading,
                     selectedPosition: self.$selectedPosition,
-                    route: self.$viewModel.route,
-                    isParkSelected: self.$isParkSelected,
-                    isShowDirections: self.$isShowDirections)
+                    route: $viewModel.route,
+                    isParkSelected: $viewModel.isParkSelected,
+                    isShowDirections: $viewModel.isShowDirections)
 
             AppIcons.pin
                 .resizable()
@@ -45,7 +43,7 @@ struct ContentView: View {
                     .padding([.top, .horizontal])
             }
 
-            if let travelTime = self.viewModel.travelTime, self.isShowDirections {
+            if let travelTime = viewModel.travelTime, viewModel.isShowDirections {
                 Text("Tiempo estimado de llegada: \(travelTime)")
                     .padding()
                     .font(AppFont.nunitoBody)
@@ -70,14 +68,14 @@ struct ContentView: View {
                     Button(action: {
                         guard let source = self.locationManager.location,
                               let lastLocation = self.locations.last, lastLocation.isSelected else { return }
-                        self.isShowDirections.toggle()
-                        self.viewModel.getDirections(source, destination: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
+                        viewModel.isShowDirections.toggle()
+                        viewModel.getDirections(source, destination: CLLocationCoordinate2D(latitude: lastLocation.latitude, longitude: lastLocation.longitude))
                     }) {
-                        if self.isParkSelected {
+                        if viewModel.isParkSelected {
                             AppIcons.track
                                 .resizable()
                                 .frame(width: Dimensions.XL, height: Dimensions.XL)
-                                .tint(self.isShowDirections ? AppColor.disabled : AppColor.primary)
+                                .tint(viewModel.isShowDirections ? AppColor.disabled : AppColor.primary)
                         } else {
                             AppIcons.track
                                 .resizable()
@@ -89,7 +87,7 @@ struct ContentView: View {
 
                     Button(action: {
                         if let lastLocation = self.locations.last, lastLocation.isSelected {
-                            self.isParkAlertShow.toggle()
+                            viewModel.isParkAlertShow.toggle()
                         } else {
                             self.park()
                         }
@@ -98,8 +96,8 @@ struct ContentView: View {
                             AppIcons.parking
                                 .resizable()
                                 .frame(width: Dimensions.XXL, height: Dimensions.XXL)
-                                .tint(self.isParkSelected ? AppColor.disabled : AppColor.primary)
-                            if self.isParkSelected {
+                                .tint(viewModel.isParkSelected ? AppColor.disabled : AppColor.primary)
+                            if viewModel.isParkSelected {
                                 Circle()
                                     .stroke(AppColor.accent, lineWidth: Dimensions.XS)
                                     .frame(width: Dimensions.XXL, height: Dimensions.XXL)
@@ -125,7 +123,7 @@ struct ContentView: View {
             }
             .position(CGPoint(x: UIScreen.main.bounds.size.width / 2, y: UIScreen.main.bounds.size.height - 180))
 
-            if self.isLoading {
+            if viewModel.isLoading {
                 ZStack {
                     Color.black.opacity(0.75)
                         .ignoresSafeArea()
@@ -136,7 +134,7 @@ struct ContentView: View {
                         .position(CGPoint(x:  UIScreen.main.bounds.size.width / 2, y: (UIScreen.main.bounds.size.height / 2) - Dimensions.L))
                 }
                 .transition(.opacity)
-                .animation(.easeInOut, value: self.isLoading)
+                .animation(.easeInOut, value: viewModel.isLoading)
             }
         }
         .environmentObject(self.locationManager)
@@ -145,9 +143,9 @@ struct ContentView: View {
         }
         .onAppear {
             guard let lastLocation = self.locations.last else { return }
-            self.isParkSelected = lastLocation.isSelected
+            viewModel.isParkSelected = lastLocation.isSelected
         }
-        .alert(isPresented: self.$isParkAlertShow) {
+        .alert(isPresented: $viewModel.isParkAlertShow) {
             Alert(title: Text("¿Has llegado a tu coche?"),
                   message: Text("Indica si quieres aparcar"),
                   primaryButton: .default(Text("Aparcar"), action: {
@@ -155,7 +153,7 @@ struct ContentView: View {
                 self.park()
             }),
                   secondaryButton: .destructive(Text("Cerrar"), action: {
-                self.isParkAlertShow.toggle()
+                viewModel.isParkAlertShow.toggle()
             }))
         }
     }
@@ -169,16 +167,20 @@ struct ContentView: View {
     }
     
     private func unPark() {
+        @Bindable var viewModel = self.viewModel
+
         if let lastLocation = self.locations.last, lastLocation.isSelected {
             withAnimation {
-                self.isParkSelected.toggle()
+                viewModel.isParkSelected.toggle()
             }
             self.modelContext.delete(lastLocation)
-            self.isShowDirections = false
+            viewModel.isShowDirections = false
         }
     }
     
     private func park() {
+        @Bindable var viewModel = self.viewModel
+
         self.locations.forEach { location in
             location.isSelected = false
         }
@@ -186,7 +188,7 @@ struct ContentView: View {
                                            longitude: self.selectedPosition.longitude, timestamp: Date(),
                                            isSelected: true))
         withAnimation {
-            self.isParkSelected.toggle()
+            viewModel.isParkSelected.toggle()
         }
     }
 }

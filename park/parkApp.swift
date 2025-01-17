@@ -34,14 +34,17 @@ struct parkApp: App {
     }()
 
     var body: some Scene {
+        @Bindable var viewModel = self.viewModel
+
         WindowGroup {
-            ContentView(viewModel: self.viewModel)
+            ContentView()
                 .onAppear {
                     self.locationManager.requestLocation()
                 }
                 .environmentObject(self.locationManager)
         }
         .modelContainer(self.container)
+        .environment(self.viewModel)
     }
     
     init() {

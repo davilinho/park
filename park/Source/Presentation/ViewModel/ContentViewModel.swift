@@ -8,8 +8,22 @@
 @preconcurrency import MapKit
 import SwiftUI
 
+enum ParkStatusType {
+    case loading
+    case parkSelected
+    case notParkSelected
+}
+
 @Observable
 class ContentViewModel {
+    // Flags
+    var status: ParkStatusType = .loading
+    var isLoading: Bool = true
+    var isParkSelected: Bool = false
+    var isParkAlertShow: Bool = false
+    var isShowDirections: Bool = false
+
+    // Route
     var route: MKRoute?
     var travelTime: String?
 
