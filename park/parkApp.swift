@@ -17,7 +17,7 @@ class AppDelegate: NSObject, UIApplicationDelegate {
 @main
 struct parkApp: App {
     @UIApplicationDelegateAdaptor(AppDelegate.self) var delegate
-    @ObservedObject var locationManager = LocationManager()
+    @State private var viewModel = ParkViewModel()
 
     var container: ModelContainer = {
         let schema = Schema([
@@ -33,17 +33,19 @@ struct parkApp: App {
     }()
 
     var body: some Scene {
+        @Bindable var viewModel = self.viewModel
+
         WindowGroup {
             ContentView()
                 .onAppear {
-                    self.locationManager.requestLocation()
+                    viewModel.locationManager.requestLocation()
                 }
-                .environmentObject(self.locationManager)
         }
         .modelContainer(self.container)
+        .environment(self.viewModel)
     }
     
     init() {
-        self.locationManager.requestLocation()
+        self.viewModel.locationManager.requestLocation()
     }
 }
