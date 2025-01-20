@@ -7,15 +7,32 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D548BBC42BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D548BBC32BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf */; };
+		390A28932CEBB0440080A776 /* vegaDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28922CEBB0440080A776 /* vegaDesignSystem */; };
+		390A28962CEC867A0080A776 /* vegaDesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28952CEC867A0080A776 /* vegaDesignSystem */; };
+		390A289B2CEDD1990080A776 /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 390A289A2CEDD1990080A776 /* FirebaseAnalytics */; };
+		390A289D2CEDD1990080A776 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 390A289C2CEDD1990080A776 /* FirebaseAuth */; };
+		390A289F2CEDD1990080A776 /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = 390A289E2CEDD1990080A776 /* FirebaseCore */; };
+		390A28A12CEDD1990080A776 /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28A02CEDD1990080A776 /* FirebaseCrashlytics */; };
+		390A28A32CEDD1990080A776 /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28A22CEDD1990080A776 /* FirebaseDatabase */; };
+		390A28A52CEDD1990080A776 /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28A42CEDD1990080A776 /* FirebaseFirestore */; };
+		390A28A72CEDD1990080A776 /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28A62CEDD1990080A776 /* FirebaseMessaging */; };
+		390A28A92CEDD1990080A776 /* FirebasePerformance in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28A82CEDD1990080A776 /* FirebasePerformance */; };
+		390A28AB2CEDD1990080A776 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 390A28AA2CEDD1990080A776 /* FirebaseStorage */; };
+		390A28AE2CEDD6300080A776 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 390A28AC2CEDD5130080A776 /* GoogleService-Info.plist */; };
+		3982656E2D3D90A5001618B0 /* CoreLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3982656D2D3D90A3001618B0 /* CoreLog.swift */; };
+		398265722D3D936E001618B0 /* FirebaseLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 398265712D3D936D001618B0 /* FirebaseLog.swift */; };
+		39A05B1E2D37BE750011AE56 /* ParkViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39A05B1D2D37BE720011AE56 /* ParkViewModel.swift */; };
+		39C04BDC2CFBD865001F6C95 /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39C04BDB2CFBD863001F6C95 /* AppIcons.swift */; };
+		39ED01082D3A5CEF00596AC3 /* ParkStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ED01072D3A5CEE00596AC3 /* ParkStatusType.swift */; };
+		39ED010A2D3A5FE000596AC3 /* ParkUIStatusType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ED01092D3A5FE000596AC3 /* ParkUIStatusType.swift */; };
+		39ED011D2D3CF15A00596AC3 /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = 39ED011C2D3CF15A00596AC3 /* GoogleMobileAds */; };
+		39ED011F2D3CF1B900596AC3 /* AdMobManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 39ED011E2D3CF1B600596AC3 /* AdMobManager.swift */; };
 		D57A8B692B85DB14004A57B8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D57A8B682B85DB14004A57B8 /* SettingsView.swift */; };
 		D57A8B6B2B879617004A57B8 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */; };
 		D58368072C1216DB0003AD0A /* BluetoothManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58368062C1216DB0003AD0A /* BluetoothManager.swift */; };
-		D5BAAA682BBF21E60048D27C /* Font+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BAAA672BBF21E60048D27C /* Font+Extension.swift */; };
 		D5FD21F32B7BD7320034E9C0 /* parkApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FD21F22B7BD7320034E9C0 /* parkApp.swift */; };
 		D5FD21F52B7BD7320034E9C0 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FD21F42B7BD7320034E9C0 /* ContentView.swift */; };
 		D5FD21F92B7BD7330034E9C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FD21F82B7BD7330034E9C0 /* Assets.xcassets */; };
-		D5FD21FD2B7BD7330034E9C0 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FD21FC2B7BD7330034E9C0 /* Preview Assets.xcassets */; };
 		D5FD22082B7BD7340034E9C0 /* parkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FD22072B7BD7340034E9C0 /* parkTests.swift */; };
 		D5FD22122B7BD7340034E9C0 /* parkUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FD22112B7BD7340034E9C0 /* parkUITests.swift */; };
 		D5FD22142B7BD7340034E9C0 /* parkUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5FD22132B7BD7340034E9C0 /* parkUITestsLaunchTests.swift */; };
@@ -42,17 +59,24 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D548BBC32BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Nunito-VariableFont_wght.ttf"; sourceTree = "<group>"; };
+		390A28AC2CEDD5130080A776 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		397BD70C2D101FD300DC426F /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		397BD70E2D101FD300DC426F /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		3982656D2D3D90A3001618B0 /* CoreLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreLog.swift; sourceTree = "<group>"; };
+		398265712D3D936D001618B0 /* FirebaseLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseLog.swift; sourceTree = "<group>"; };
+		39A05B1D2D37BE720011AE56 /* ParkViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkViewModel.swift; sourceTree = "<group>"; };
+		39C04BDB2CFBD863001F6C95 /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
+		39ED01072D3A5CEE00596AC3 /* ParkStatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkStatusType.swift; sourceTree = "<group>"; };
+		39ED01092D3A5FE000596AC3 /* ParkUIStatusType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParkUIStatusType.swift; sourceTree = "<group>"; };
+		39ED011E2D3CF1B600596AC3 /* AdMobManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdMobManager.swift; sourceTree = "<group>"; };
 		D57A8B682B85DB14004A57B8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D57A8B6A2B879617004A57B8 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		D58368062C1216DB0003AD0A /* BluetoothManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothManager.swift; sourceTree = "<group>"; };
-		D5BAAA672BBF21E60048D27C /* Font+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Extension.swift"; sourceTree = "<group>"; };
 		D5FD21EF2B7BD7320034E9C0 /* park.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = park.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FD21F22B7BD7320034E9C0 /* parkApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkApp.swift; sourceTree = "<group>"; };
 		D5FD21F42B7BD7320034E9C0 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		D5FD21F82B7BD7330034E9C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D5FD21FA2B7BD7330034E9C0 /* park.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = park.entitlements; sourceTree = "<group>"; };
-		D5FD21FC2B7BD7330034E9C0 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D5FD21FE2B7BD7330034E9C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D5FD22032B7BD7340034E9C0 /* parkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = parkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FD22072B7BD7340034E9C0 /* parkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = parkTests.swift; sourceTree = "<group>"; };
@@ -69,6 +93,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39ED011D2D3CF15A00596AC3 /* GoogleMobileAds in Frameworks */,
+				390A28A72CEDD1990080A776 /* FirebaseMessaging in Frameworks */,
+				390A28962CEC867A0080A776 /* vegaDesignSystem in Frameworks */,
+				390A28A92CEDD1990080A776 /* FirebasePerformance in Frameworks */,
+				390A289F2CEDD1990080A776 /* FirebaseCore in Frameworks */,
+				390A28932CEBB0440080A776 /* vegaDesignSystem in Frameworks */,
+				390A28A12CEDD1990080A776 /* FirebaseCrashlytics in Frameworks */,
+				390A289B2CEDD1990080A776 /* FirebaseAnalytics in Frameworks */,
+				390A28A52CEDD1990080A776 /* FirebaseFirestore in Frameworks */,
+				390A28AB2CEDD1990080A776 /* FirebaseStorage in Frameworks */,
+				390A28A32CEDD1990080A776 /* FirebaseDatabase in Frameworks */,
+				390A289D2CEDD1990080A776 /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,26 +125,92 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		397BD70B2D101FD300DC426F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				397BD70C2D101FD300DC426F /* WidgetKit.framework */,
+				397BD70E2D101FD300DC426F /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3982656F2D3D9359001618B0 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				3982656D2D3D90A3001618B0 /* CoreLog.swift */,
+				398265712D3D936D001618B0 /* FirebaseLog.swift */,
+			);
+			path = Logger;
+			sourceTree = "<group>";
+		};
+		398265702D3D9361001618B0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				39C04BDB2CFBD863001F6C95 /* AppIcons.swift */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		398265732D3D9665001618B0 /* Ads */ = {
+			isa = PBXGroup;
+			children = (
+				39ED011E2D3CF1B600596AC3 /* AdMobManager.swift */,
+			);
+			path = Ads;
+			sourceTree = "<group>";
+		};
+		39A05B1A2D37BC680011AE56 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				39A05B1B2D37BC730011AE56 /* View */,
+				39A05B1C2D37BC770011AE56 /* ViewModel */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		39A05B1B2D37BC730011AE56 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				D5FD21F42B7BD7320034E9C0 /* ContentView.swift */,
+				D5FD22242B7BDEFE0034E9C0 /* MapView.swift */,
+				D57A8B682B85DB14004A57B8 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39A05B1C2D37BC770011AE56 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				39A05B1D2D37BE720011AE56 /* ParkViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		39C04BDD2CFBD871001F6C95 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				398265732D3D9665001618B0 /* Ads */,
+				D5FD22262B7D0B320034E9C0 /* Domain */,
+				D5FD22202B7BD8220034E9C0 /* Model */,
+				39A05B1A2D37BC680011AE56 /* Presentation */,
+				D5BAAA662BBF21C70048D27C /* Shared */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		D548BBC12BBF203000E7ABBB /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				D548BBC22BBF203500E7ABBB /* Fonts */,
+				D5FD21F82B7BD7330034E9C0 /* Assets.xcassets */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		D548BBC22BBF203500E7ABBB /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				D548BBC32BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf */,
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D5BAAA662BBF21C70048D27C /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				D5BAAA672BBF21E60048D27C /* Font+Extension.swift */,
+				398265702D3D9361001618B0 /* Assets */,
+				3982656F2D3D9359001618B0 /* Logger */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -120,6 +222,7 @@
 				D5FD21F12B7BD7320034E9C0 /* park */,
 				D5FD22062B7BD7340034E9C0 /* parkTests */,
 				D5FD22102B7BD7340034E9C0 /* parkUITests */,
+				397BD70B2D101FD300DC426F /* Frameworks */,
 				D5FD21F02B7BD7320034E9C0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -138,25 +241,13 @@
 			isa = PBXGroup;
 			children = (
 				D5FD21FA2B7BD7330034E9C0 /* park.entitlements */,
+				390A28AC2CEDD5130080A776 /* GoogleService-Info.plist */,
 				D5FD21FE2B7BD7330034E9C0 /* Info.plist */,
 				D5FD21F22B7BD7320034E9C0 /* parkApp.swift */,
-				D5FD21F82B7BD7330034E9C0 /* Assets.xcassets */,
-				D5FD22262B7D0B320034E9C0 /* Domain */,
-				D5FD22202B7BD8220034E9C0 /* Model */,
-				D5FD21FB2B7BD7330034E9C0 /* Preview Content */,
 				D548BBC12BBF203000E7ABBB /* Resources */,
-				D5BAAA662BBF21C70048D27C /* Shared */,
-				D5FD22232B7BD8960034E9C0 /* View */,
+				39C04BDD2CFBD871001F6C95 /* Source */,
 			);
 			path = park;
-			sourceTree = "<group>";
-		};
-		D5FD21FB2B7BD7330034E9C0 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				D5FD21FC2B7BD7330034E9C0 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		D5FD22062B7BD7340034E9C0 /* parkTests */ = {
@@ -180,18 +271,10 @@
 			isa = PBXGroup;
 			children = (
 				D5FD22212B7BD83D0034E9C0 /* ParkModel.swift */,
+				39ED01072D3A5CEE00596AC3 /* ParkStatusType.swift */,
+				39ED01092D3A5FE000596AC3 /* ParkUIStatusType.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		D5FD22232B7BD8960034E9C0 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				D5FD21F42B7BD7320034E9C0 /* ContentView.swift */,
-				D5FD22242B7BDEFE0034E9C0 /* MapView.swift */,
-				D57A8B682B85DB14004A57B8 /* SettingsView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		D5FD22262B7D0B320034E9C0 /* Domain */ = {
@@ -266,8 +349,8 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1510;
-				LastUpgradeCheck = 1510;
+				LastSwiftUpdateCheck = 1620;
+				LastUpgradeCheck = 1610;
 				TargetAttributes = {
 					D5FD21EE2B7BD7320034E9C0 = {
 						CreatedOnToolsVersion = 15.1;
@@ -291,6 +374,11 @@
 				Base,
 			);
 			mainGroup = D5FD21E62B7BD7320034E9C0;
+			packageReferences = (
+				390A28942CEC867A0080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */,
+				390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				39ED011B2D3CF15A00596AC3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+			);
 			productRefGroup = D5FD21F02B7BD7320034E9C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -307,9 +395,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D548BBC42BBF203E00E7ABBB /* Nunito-VariableFont_wght.ttf in Resources */,
 				D57A8B6B2B879617004A57B8 /* Launch Screen.storyboard in Resources */,
-				D5FD21FD2B7BD7330034E9C0 /* Preview Assets.xcassets in Resources */,
+				390A28AE2CEDD6300080A776 /* GoogleService-Info.plist in Resources */,
 				D5FD21F92B7BD7330034E9C0 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -338,10 +425,16 @@
 				D57A8B692B85DB14004A57B8 /* SettingsView.swift in Sources */,
 				D5FD21F52B7BD7320034E9C0 /* ContentView.swift in Sources */,
 				D58368072C1216DB0003AD0A /* BluetoothManager.swift in Sources */,
-				D5BAAA682BBF21E60048D27C /* Font+Extension.swift in Sources */,
 				D5FD22222B7BD83D0034E9C0 /* ParkModel.swift in Sources */,
+				3982656E2D3D90A5001618B0 /* CoreLog.swift in Sources */,
 				D5FD22282B7D0B3F0034E9C0 /* LocationManager.swift in Sources */,
+				39ED010A2D3A5FE000596AC3 /* ParkUIStatusType.swift in Sources */,
+				398265722D3D936E001618B0 /* FirebaseLog.swift in Sources */,
+				39A05B1E2D37BE750011AE56 /* ParkViewModel.swift in Sources */,
+				39ED011F2D3CF1B900596AC3 /* AdMobManager.swift in Sources */,
 				D5FD22252B7BDEFE0034E9C0 /* MapView.swift in Sources */,
+				39ED01082D3A5CEF00596AC3 /* ParkStatusType.swift in Sources */,
+				39C04BDC2CFBD865001F6C95 /* AppIcons.swift in Sources */,
 				D5FD21F32B7BD7320034E9C0 /* parkApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +506,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -437,6 +531,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Debug;
 		};
@@ -474,6 +569,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -490,6 +586,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_STRICT_CONCURRENCY = complete;
 			};
 			name = Release;
 		};
@@ -499,16 +596,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = park/park.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"park/Preview Content\"";
-				DEVELOPMENT_TEAM = MCUFY86P42;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = TJ2TNER4KE;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = park/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Park;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "La aplicación necesita acceso a Bluetooth para comunicarse con dispositivos externos.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "La aplicación necesita acceso a periféricos Bluetooth para el intercambio de datos.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Este permiso es necesario para geolocalizarte en el mapa.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -528,6 +629,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dmn.tech.park;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -543,16 +645,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = park/park.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"park/Preview Content\"";
-				DEVELOPMENT_TEAM = MCUFY86P42;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
+				DEVELOPMENT_TEAM = TJ2TNER4KE;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = park/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Park;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "La aplicación necesita acceso a Bluetooth para comunicarse con dispositivos externos.";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "La aplicación necesita acceso a periféricos Bluetooth para el intercambio de datos.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Este permiso es necesario para geolocalizarte en el mapa.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -572,6 +678,7 @@
 				MARKETING_VERSION = 1.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.dmn.tech.park;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -584,11 +691,11 @@
 		D5FD221B2B7BD7340034E9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 962B32PZSY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = MCUFY86P42;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -608,11 +715,11 @@
 		D5FD221C2B7BD7340034E9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 962B32PZSY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = MCUFY86P42;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -632,10 +739,10 @@
 		D5FD221E2B7BD7340034E9C0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 962B32PZSY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = MCUFY86P42;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -655,10 +762,10 @@
 		D5FD221F2B7BD7340034E9C0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 962B32PZSY;
+				DEAD_CODE_STRIPPING = YES;
+				DEVELOPMENT_TEAM = MCUFY86P42;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MACOSX_DEPLOYMENT_TARGET = 14.2;
@@ -715,6 +822,104 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		390A28912CEBB0440080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:davilinho/vegaDesignSystem.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		390A28942CEC867A0080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/davilinho/vegaDesignSystem.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.5.0;
+			};
+		};
+		39ED011B2D3CF15A00596AC3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 11.13.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		390A28922CEBB0440080A776 /* vegaDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28912CEBB0440080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */;
+			productName = vegaDesignSystem;
+		};
+		390A28952CEC867A0080A776 /* vegaDesignSystem */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28942CEC867A0080A776 /* XCRemoteSwiftPackageReference "vegaDesignSystem" */;
+			productName = vegaDesignSystem;
+		};
+		390A289A2CEDD1990080A776 /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		390A289C2CEDD1990080A776 /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		390A289E2CEDD1990080A776 /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		390A28A02CEDD1990080A776 /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		390A28A22CEDD1990080A776 /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		390A28A42CEDD1990080A776 /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		390A28A62CEDD1990080A776 /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
+		390A28A82CEDD1990080A776 /* FirebasePerformance */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebasePerformance;
+		};
+		390A28AA2CEDD1990080A776 /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 390A28992CEDD1990080A776 /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+		39ED011C2D3CF15A00596AC3 /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 39ED011B2D3CF15A00596AC3 /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D5FD21E72B7BD7320034E9C0 /* Project object */;
 }

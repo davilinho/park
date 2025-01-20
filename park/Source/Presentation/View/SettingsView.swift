@@ -4,6 +4,7 @@
 
 import SwiftUI
 import SwiftData
+import vegaDesignSystem
 
 struct SettingsView: View {
     @Environment(\.dismiss) var dismiss
@@ -17,22 +18,39 @@ struct SettingsView: View {
             LazyVGrid(columns: [GridItem(.flexible())]) {
                 ScrollView {
                     ForEach(self.locations, id: \.self) { location in
-                        HStack {
-                            Text("\(location.latitude)")
-                            Text("\(location.longitude)")
-                            Spacer()
-                        }
+                        ParkModelView(model: location)
                     }
                 }
             }
-            .padding(16)
+            .padding(Dimensions.M)
             Button("Press to dismiss") {
                 self.isShowing.toggle()
                 self.dismiss()
             }
             Spacer()
         }
-        .font(.title)
+        .font(AppFont.nunitoBody)
         .padding()
+    }
+}
+
+struct ParkModelView: View {
+    var model: ParkModel
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(self.toStringDate(model.timestamp))
+            HStack {
+                Text("\(model.latitude)")
+                Text("\(model.longitude)")
+                Spacer()
+            }
+        }
+    }
+
+    func toStringDate(_ date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy HH:mm:ss"
+        return dateFormatter.string(from: date)
     }
 }
