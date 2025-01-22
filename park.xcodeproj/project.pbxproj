@@ -151,14 +151,6 @@
 			path = Assets;
 			sourceTree = "<group>";
 		};
-		398265732D3D9665001618B0 /* Ads */ = {
-			isa = PBXGroup;
-			children = (
-				39ED011E2D3CF1B600596AC3 /* AdMobManager.swift */,
-			);
-			path = Ads;
-			sourceTree = "<group>";
-		};
 		39A05B1A2D37BC680011AE56 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
@@ -189,7 +181,6 @@
 		39C04BDD2CFBD871001F6C95 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				398265732D3D9665001618B0 /* Ads */,
 				D5FD22262B7D0B320034E9C0 /* Domain */,
 				D5FD22202B7BD8220034E9C0 /* Model */,
 				39A05B1A2D37BC680011AE56 /* Presentation */,
@@ -280,6 +271,7 @@
 		D5FD22262B7D0B320034E9C0 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				39ED011E2D3CF1B600596AC3 /* AdMobManager.swift */,
 				D58368062C1216DB0003AD0A /* BluetoothManager.swift */,
 				D5FD22272B7D0B3F0034E9C0 /* LocationManager.swift */,
 			);
@@ -532,6 +524,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -587,6 +580,7 @@
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
@@ -601,7 +595,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = TJ2TNER4KE;
+				DEVELOPMENT_TEAM = 9U2SD7A9BN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -634,7 +628,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -650,7 +644,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = TJ2TNER4KE;
+				DEVELOPMENT_TEAM = 9U2SD7A9BN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -683,7 +677,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -706,7 +700,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/park.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/park";
 			};
@@ -730,7 +724,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/park.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/park";
 			};
@@ -753,7 +747,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = park;
 			};
@@ -776,7 +770,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_TARGET_NAME = park;
 			};

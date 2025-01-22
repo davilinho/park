@@ -8,11 +8,16 @@
 import Foundation
 
 enum ParkUIStatusType {
+    case adsShowing
     case alertShowing
     case directionsShowing
     case shareActionShowing
     case loading
     case none
+
+    var isAdsShowing: Bool {
+        self == .adsShowing
+    }
 
     var isAlertShowing: Bool {
         get {

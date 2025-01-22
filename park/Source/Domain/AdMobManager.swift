@@ -9,7 +9,7 @@ import GoogleMobileAds
 import SwiftUI
 
 @MainActor
-class AdMobManager: NSObject, GADFullScreenContentDelegate, @preconcurrency GADBannerViewDelegate {
+class AdMobManager: NSObject, GADFullScreenContentDelegate {
     private enum Constants {
         static let interstitialAdUnitId: String = "ca-app-pub-7484598801086427/2876996696"
         static let bannerAdUnitId: String = "ca-app-pub-7484598801086427/9371921152"
@@ -67,7 +67,9 @@ class AdMobManager: NSObject, GADFullScreenContentDelegate, @preconcurrency GADB
             bannerView.alpha = 1
         }
     }
+}
 
+extension AdMobManager: @preconcurrency GADBannerViewDelegate {
     func bannerView(_ bannerView: GADBannerView, didFailToReceiveAdWithError error: Error) {
         FirebaseLog.instance.error("bannerView:didFailToReceiveAdWithError: %@", error.localizedDescription)
     }

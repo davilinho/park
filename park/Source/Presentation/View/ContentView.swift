@@ -4,7 +4,7 @@
 
 import GoogleMobileAds
 import FirebaseAnalytics
-@preconcurrency import MapKit
+import MapKit
 import SwiftUI
 import SwiftData
 import vegaDesignSystem
@@ -132,22 +132,6 @@ struct ContentView: View {
                     .frame(height: adSize.size.height)
             }
         }
-        .onChange(of: scenePhase) { oldPhase, newPhase in
-            guard oldPhase != newPhase else { return }
-            switch newPhase {
-            case .active:
-                viewModel.startAdTimer()
-            default:
-                viewModel.stopTimer()
-            }
-        }
-        .onAppear {
-            viewModel.locationManager.requestLocation()
-        }
-        .onAppear {
-            guard let lastLocation = self.locations.last else { return }
-            viewModel.set(status: lastLocation.isSelected ? .parked : .notParked)
-        }
         .safeAreaInset(edge: .top, alignment: .trailing) {
             Button {
                 viewModel.set(uiStatus: .shareActionShowing)
@@ -166,10 +150,33 @@ struct ContentView: View {
             }
             .disabled(viewModel.status.iusNotParked)
         }
+        .onAppear {
+            viewModel.locationManager.requestLocation()
+        }
+        .onAppear {
+            guard let lastLocation = self.locations.last else { return }
+            viewModel.set(status: lastLocation.isSelected ? .parked : .notParked)
+        }
+        .onChange(of: self.scenePhase) { oldPhase, newPhase in
+            guard oldPhase != newPhase else { return }
+            switch newPhase {
+            case .active:
+                viewModel.startAdTimer()
+            default:
+                viewModel.stopTimer()
+            }
+        }
         .onChange(of: viewModel.uiStatus.isShareActionShowing) { oldValue, newValue in
             guard oldValue != newValue else { return }
             viewModel.sharePark(location: self.locations.last)
             viewModel.set(uiStatus: .none)
+        }
+        .onReceive(viewModel.bluetoothManager.$isConnected) { newValue in
+            if newValue {
+                self.unPark()
+            } else {
+                self.park()
+            }
         }
         .alert(isPresented: $viewModel.uiStatus.isAlertShowing) {
             Alert(title: Text("¿Has llegado a tu coche?"),
