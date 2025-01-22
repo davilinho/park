@@ -12,6 +12,7 @@ import SwiftUI
 @Observable
 class ParkViewModel {
     var locationManager = LocationManager()
+    var bluetoothManager = BluetoothManager()
 
     // Flags
     var status: ParkStatusType = .notParked
@@ -85,11 +86,15 @@ extension ParkViewModel {
     }
 
     func startAdTimer() {
+        guard !self.uiStatus.isAdsShowing else { return }
+        self.set(uiStatus: .adsShowing)
+
         self.adsTimer = Timer.scheduledTimer(withTimeInterval: Constants.adsInterval, repeats: true) { [weak self] _ in
             guard let self else { return }
             DispatchQueue.main.async {
                 self.showInterstitialAd()
                 self.stopTimer()
+                self.set(uiStatus: .none)
             }
         }
     }

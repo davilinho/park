@@ -54,6 +54,7 @@ struct parkApp: App {
                 .onAppear {
                     viewModel.locationManager.requestLocation()
                 }
+                .privacySensitive()
         }
         .modelContainer(self.container)
         .environment(self.viewModel)

@@ -6,9 +6,9 @@ import CoreLocation
 import CoreLocationUI
 
 class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
-    private let manager = CLLocationManager()
-
     @Published var location: CLLocationCoordinate2D?
+
+    private let manager = CLLocationManager()
 
     override init() {
         super.init()
@@ -26,7 +26,9 @@ class LocationManager: NSObject, ObservableObject, CLLocationManagerDelegate {
     }
 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        print("☠️☠️☠️Location manager: didFailWithError %@ ☠️☠️☠️", error.localizedDescription)
+        DispatchQueue.main.async {
+            FirebaseLog.instance.error("Location manager: didFailWithError %@", error.localizedDescription)
+        }
     }
 
     func areCoordinatesAtLeastMetersApart(firstLocationCoordinate: CLLocationCoordinate2D, secondLocationCoordinate: CLLocationCoordinate2D,
